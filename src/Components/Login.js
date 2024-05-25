@@ -1,16 +1,21 @@
 import React, { useRef, useState } from "react";
 import Header from "./Header";
 import { validate } from "../utils/validate";
-import { createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
 import { auth } from "../utils/firebase";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [isSignIn, setisSignIn] = useState(true);
-
   const [errormsg, seterrormsg] = useState(null);
-
   const email = useRef();
   const password = useRef();
+  const name = useRef();
+  const navigate = useNavigate();
 
   const handltoggle = () => {
     setisSignIn(!isSignIn);
@@ -31,7 +36,20 @@ function Login() {
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
-          console.log(user);
+          updateProfile(user, {
+            displayName: name.current.value,
+            photoURL: "https://avatars.githubusercontent.com/u/81466016?v=4",
+          })
+            .then(() => {
+              navigate("/browse");
+              // Profile updated!
+              // ...
+            })
+            .catch((error) => {
+              // An error occurred
+              // ...
+            });
+        
           // ...
         })
         .catch((error) => {
@@ -50,7 +68,8 @@ function Login() {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log(user)
+          console.log(user);
+          navigate("/browse");
           // ...
         })
         .catch((error) => {
@@ -79,6 +98,7 @@ function Login() {
         {!isSignIn && (
           <input
             type="text"
+            ref={name}
             placeholder="Full Name"
             className="p-3 my-4 w-full bg-gray-500"
           />

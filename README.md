@@ -6,6 +6,8 @@
 #Sign up Form
 #Sign up validation
 #Firabase setup nd deploy
+#Redux store
+#sign out
 
 #Website
  #HOMEPAGE
