@@ -3,6 +3,8 @@
 #Header
 #Login Form
 #Sign up Form
+#Sign up validation
+#Firabase setup nd deploy
 
 #Website
  #HOMEPAGE
