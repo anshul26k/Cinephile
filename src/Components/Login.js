@@ -41,11 +41,12 @@ function Login() {
             photoURL: "https://avatars.githubusercontent.com/u/81466016?v=4",
           })
             .then(() => {
-              navigate("/browse");
+             
               // Profile updated!
               // ...
             })
             .catch((error) => {
+               navigate("/error")
               // An error occurred
               // ...
             });
@@ -69,7 +70,7 @@ function Login() {
           // Signed in
           const user = userCredential.user;
           console.log(user);
-          navigate("/browse");
+         
           // ...
         })
         .catch((error) => {
