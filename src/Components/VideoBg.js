@@ -7,9 +7,9 @@ function VideoBg({ id }) {
   useVideoTrailer(id)
 
   return (
-    <div className="w-screen">
+    <div className="w-full">
       <iframe
-        className="w-screen aspect-video "
+        className="w-full aspect-video "
         src={"https://www.youtube.com/embed/" + data?.key }
         // src="https://www.youtube.com/embed/hXzcyx9V0xw?autoplay=1&mute=1"
         title="YouTube video player"

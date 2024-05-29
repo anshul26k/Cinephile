@@ -12,7 +12,7 @@ function MainContainer() {
  
 
   return (
-    <div className="w-screen  aspect-video ">
+    <div className="w-full">
       <VideoTitle title={original_title} overview={overview} />
       <VideoBg id={id} />
     </div>

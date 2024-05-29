@@ -11,6 +11,7 @@
 -bug fix = redirectiong user to login if not signed in 
 -Constant file for hardcoded values
 -browse page -> video title nd trailer using redux store
+-secondry container -> movies list
 
 
 #Website
