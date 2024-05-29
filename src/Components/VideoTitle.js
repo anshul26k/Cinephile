@@ -1,15 +1,15 @@
 import React from 'react'
 
 const VideoTitle = ({title,overview})=> {
-  console.log("vedo",{title,overview})
+  
   return (
-    <div className='pt-36 px-12'>
+    <div className='w-screen  aspect-video pt-[18%] px-20 absolute text-white bg-gradient-to-r from-black'>
         
         <h1 className='font-bold text-3xl'>{title}</h1>
-        <p className='w-1/4 text-lg py-6'>{overview}</p>
-        <div className='my-4'>
-        <button className='px-6 py-2 m-2 bg-slate-400 rounded-md text-lg opacity-50'> ▶Play</button>
-        <button className='px-6 py-2 m-2 bg-slate-400 rounded-md text-lg opacity-60'>More info</button>
+        <p className='w-1/4 text-md py-5'>{overview}</p>
+        <div className=''>
+        <button className='px-6 py-2 m-2 bg-white rounded-md text-xl  text-black hover:opacity-70'> ▶Play</button>
+        <button className='px-6 py-2 m-2 bg-slate-500 rounded-md text-xl bg-opacity-60  text-white'>More Info</button>
         </div>
     </div>
   )

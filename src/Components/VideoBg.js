@@ -1,7 +1,5 @@
-import React, { useDebugValue, useEffect } from "react";
-import { Api_url } from "../utils/constants";
-import { useDispatch, useSelector } from "react-redux";
-import { addTrailer } from "../utils/movieSlice";
+import React from "react";
+import {  useSelector } from "react-redux";
 import useVideoTrailer from "../Hooks/useVideoTrailer";
 
 function VideoBg({ id }) {
@@ -9,12 +7,13 @@ function VideoBg({ id }) {
   useVideoTrailer(id)
 
   return (
-    <div>
+    <div className="w-screen">
       <iframe
-        width="560"
-        height="315"
-        src={"https://www.youtube.com/embed/" + data?.key}
+        className="w-screen aspect-video "
+        src={"https://www.youtube.com/embed/" + data?.key }
+        // src="https://www.youtube.com/embed/hXzcyx9V0xw?autoplay=1&mute=1"
         title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" 
       ></iframe>
     </div>
   );

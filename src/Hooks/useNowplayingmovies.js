@@ -15,7 +15,7 @@ export const useNowplayingmovies = ()  => {
   const movies = async () =>{
       const data = await fetch('https://api.themoviedb.org/3/movie/now_playing?page=1', Api_url)
       const movie  = await data.json();
-      console.log(movie.results)
+     
       dispatch(addnowplayingmovies(movie.results))
   }
   

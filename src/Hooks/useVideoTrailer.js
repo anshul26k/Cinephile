@@ -16,11 +16,11 @@ function useVideoTrailer( id ) {
       Api_url
     );
     const json = await data.json();
-    console.log(json.results);
+    
     const filterdata = json.results.filter((it) => it.type === "Trailer");
     const trailer = filterdata.length != 0 ? filterdata[0] : json.results[0];
     dispatch(addTrailer(trailer));
-    console.log(trailer);
+    
   };
 }
 
