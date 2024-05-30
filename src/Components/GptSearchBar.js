@@ -50,8 +50,8 @@ function GptSearchBar() {
 
 
   return (
-    <div className="pt-[10%] flex justify-center">
-      <form className="bg-black text-white grid grid-cols-12 w-1/2" onSubmit={(e)=>e.preventDefault()}>
+    <div className="pt-[10%] flex justify-center ">
+      <form className="bg-black text-white grid grid-cols-12  md:w-1/2 " onSubmit={(e)=>e.preventDefault()}>
         <input ref={seachdata} type="text" className="p-2 m-3 col-span-9 rounded-md text-black" placeholder="What do u you want to watch today" />
         <button className=" m-3 p-2 col-span-3 bg-red-500 rounded-md" onClick={handleSearch}>Search</button>
       </form>

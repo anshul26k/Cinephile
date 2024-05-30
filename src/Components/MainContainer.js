@@ -12,7 +12,7 @@ function MainContainer() {
  
 
   return (
-    <div className="w-full">
+    <div className="w-full bg-black pt-[40%] md:pt-0">
       <VideoTitle title={original_title} overview={overview} />
       <VideoBg id={id} />
     </div>

@@ -52,21 +52,21 @@ function Header() {
   }
 
   return (
-    <div className="absolute w-full px-6 py-2 bg-gradient-to-b from-black z-20 flex justify-between">
-      <img src={Logo} className="w-36"></img>
+    <div className=" absolute w-full px-6 py-2 bg-gradient-to-b from-black z-20 flex flex-col justify-between md:flex md:flex-row">
+      <img src={Logo} className="w-36 mx-auto md:mx-0"></img>
 
       {user && (
-        <div className="flex p-4 gap-2">
+        <div className="flex p-4 gap-2 justify-between ">
           <button className="px-4 py-2 m-2 rounded-lg bg-purple-600 text-white" onClick={handleGptSeach}>
              {GptSearchView?"Homepage":"GptSearch"}
           </button>
-          <img src={userlogo} className="w-12 h-12" />
           <button
-            className="bg-slate-700 px-2 rounded-lg font-bold"
+            className="bg-slate-700 px-4 py-2 m-2 rounded-lg font-bold"
             onClick={handlelogout}
           >
             Sign Out
           </button>
+          <img src={userlogo} className="w-12 mt-2 h-10 hidden md:block rounded-lg " />
         </div>
       )}
     </div>

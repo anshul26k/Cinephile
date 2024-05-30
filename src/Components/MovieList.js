@@ -4,9 +4,9 @@ import MovieCard from "./MovieCard";
 function MovieList({ title, list }) {
   console.log(list);
   return (
-    <div className=" p-6 text-white">
+    <div className="px-1  md:p-6 text-white">
       <div>
-        <h1 className="py-2 text-3xl">{title}</h1>
+        <h1 className="py-2 text-lg md:text-3xl">{title}</h1>
       </div>
 
       <div className="flex overflow-x-scroll no-scrollbar">
