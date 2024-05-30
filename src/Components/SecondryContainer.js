@@ -9,7 +9,7 @@ function SecondryContainer() {
     console.log(movie)
   return (
     <div className="bg-black">
-           <div className="-mt-52 pl-10 relative z-20">
+           <div className="-mt-44 pl-10 relative z-20">
            <MovieList title={"Now playing"} list={movie}/>
            <MovieList title={"Now playing"} list={movie}/>
            <MovieList title={"Now playing"} list={movie}/>
