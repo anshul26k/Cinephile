@@ -7,7 +7,19 @@ function useVideoTrailer( id ) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    getMovieVideo();
+    dispatch(addTrailer({
+      "iso_639_1": "en",
+      "iso_3166_1": "US",
+      "name": "Final Trailer",
+      "key": "Kdr5oedn7q8",
+      "site": "YouTube",
+      "size": 1080,
+      "type": "Trailer",
+      "official": true,
+      "published_at": "2024-04-30T16:00:26.000Z",
+      "id": "663139927aecc6012472b32a"
+    }));
+    // getMovieVideo();
   }, []);
 
   const getMovieVideo = async () => {
@@ -19,7 +31,9 @@ function useVideoTrailer( id ) {
     
     const filterdata = json.results.filter((it) => it.type === "Trailer");
     const trailer = filterdata.length != 0 ? filterdata[0] : json.results[0];
+    console.log(trailer);
     dispatch(addTrailer(trailer));
+  
     
   };
 }

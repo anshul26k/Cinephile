@@ -2,20 +2,32 @@ import React, { useRef } from "react";
 // import openai from '../utils/openai.js'
 import axios from "axios";
 import { Gemini_Ai } from "../utils/constants.js";
+import { useDispatch } from "react-redux";
+import {AddGptMovieNames,AddGptMovieRes} from '../utils/gtpslice.js'
 
 
 
 function GptSearchBar() {
    const seachdata = useRef(null)
+   const dispatch = useDispatch()
+    
+   const searchMovie = async (it) => {
+           const data = await fetch(`http://www.omdbapi.com/?t=${it}&apikey=33037786`)
+           const res =  await data.json()
+           return res;
+          //  console.log(res)
+   }
+
+
    const handleSearch = async () =>{
       //  console.log(seachdata.current.value)
-      const SearchQuery = "Act like a movie recommendation sysem and give only movie name from given query " + seachdata.current.value + "give only 5 movies in format sperated by comma like given example : golmal,farzi,don,raees,krish"
+      const SearchQuery = "Act like a movie recommendation sysem and give only movie name from given query " + seachdata.current.value + "give only 6 movies in format sperated by commas like given shown in example : golmaal,farzi,don,raees,krish"
       // const result = await openai.chat.completions.create({
       //   messages: [{ role: 'user', content: SearchQuery }],
       //   model: 'gpt-3.5-turbo',
       // });
       // console.log(result)
-
+      
       const response = await axios({
         url: `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${Gemini_Ai}`,
         method: "post",
@@ -23,7 +35,13 @@ function GptSearchBar() {
           contents: [{ parts: [{ text: SearchQuery }] }],
         },
       });
-      console.log( response["data"]["candidates"][0]["content"]["parts"][0]["text"])
+      const moviesList =response["data"]["candidates"][0]["content"]["parts"][0]["text"].split(",")
+      console.log(moviesList)
+      const PromiseArray =  moviesList.map((it)=>searchMovie(it))     
+      const OmdbRes = await Promise.all(PromiseArray)
+      console.log(OmdbRes)
+      dispatch(AddGptMovieNames(moviesList))
+      dispatch(AddGptMovieRes(OmdbRes))
    }
 
    

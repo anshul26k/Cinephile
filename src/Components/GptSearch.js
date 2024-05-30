@@ -1,6 +1,7 @@
 import React from 'react'
 import GptSearchBar from './GptSearchBar'
 import { BG_URL } from '../utils/constants'
+import GptMovies from './GptMovies'
 
 function GptSearch() {
   return (
@@ -9,6 +10,7 @@ function GptSearch() {
         <img src={BG_URL}></img>
       </div>
       <GptSearchBar/>
+      <GptMovies/>
     </div>
   )
 }
