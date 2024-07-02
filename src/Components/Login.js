@@ -11,6 +11,8 @@ import { useNavigate } from "react-router-dom";
 import { BG_URL } from "../utils/constants";
 
 function Login() {
+  console.log(process.env.REACT_APP_id)
+  console.log(process.env.REACT_APP_API_id)
   const [isSignIn, setisSignIn] = useState(true);
   const [errormsg, seterrormsg] = useState(null);
   const email = useRef();
@@ -83,6 +85,7 @@ function Login() {
   };
 
   return (
+    
     <div>
       <Header />
       <div className="absolute  ">

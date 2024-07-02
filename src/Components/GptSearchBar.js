@@ -29,17 +29,20 @@ function GptSearchBar() {
       // console.log(result)
       
       const response = await axios({
-        url: `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${Gemini_Ai}`,
+        url: `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${process.env.REACT_APP_GEMINI_ID}`,
         method: "post",
         data: {
           contents: [{ parts: [{ text: SearchQuery }] }],
         },
       });
-      const moviesList =response["data"]["candidates"][0]["content"]["parts"][0]["text"].split(",")
+      console.log(response)
+      const moviesList = response?.data?.candidates?.[0]?.content?.parts?.[0]?.text?.split(",");
+      // {const newmoviesList = moviesList?.filter((movie) => movie?.Poster && movie.Poster !== "N/A")}
       console.log(moviesList)
-      const PromiseArray =  moviesList.map((it)=>searchMovie(it))     
+      const PromiseArray =  moviesList?.map((it)=>searchMovie(it))     
       const OmdbRes = await Promise.all(PromiseArray)
       console.log(OmdbRes)
+     
       dispatch(AddGptMovieNames(moviesList))
       dispatch(AddGptMovieRes(OmdbRes))
    }

@@ -11,12 +11,17 @@ function GptMovies() {
 
     <div className="w-full text-white flex flex-wrap  mt-20 p-10 md:p-0 mx-auto gap-2 justify-evenly"  >
 
-      {GptMovieRes?.map((movie) => (
-          <div className="flex flex-col items-center">
-              <h2>{movie?.Title}</h2>
-              <img alt="hell" src={movie?.Poster} className="h-52 w-40"/>
-        </div>
-      ))}
+    {GptMovieRes?.filter((movie) => movie?.Poster && movie.Poster !== "N/A").map((movie) => (
+  <div key={movie?.Title} className="flex flex-col items-center">
+    <h2>{movie?.Title}</h2>
+    <img 
+      alt={movie?.Title} 
+      src={movie.Poster} 
+      className="h-52 w-40"
+    />
+  </div>
+))}
+
      
       </div>
     </div>
