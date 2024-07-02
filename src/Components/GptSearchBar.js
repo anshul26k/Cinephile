@@ -12,7 +12,7 @@ function GptSearchBar() {
    const dispatch = useDispatch()
     
    const searchMovie = async (it) => {
-           const data = await fetch(`http://www.omdbapi.com/?t=${it}&apikey=33037786`)
+           const data = await fetch(`https://www.omdbapi.com/?t=${it}&apikey=33037786`)
            const res =  await data.json()
            return res;
           //  console.log(res)
